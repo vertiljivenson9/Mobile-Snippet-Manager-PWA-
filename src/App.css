@@ -1,0 +1,182 @@
+/* iPhone-specific optimizations */
+
+/* Prevent tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent overscroll bounce */
+html,
+body {
+  overscroll-behavior-y: none;
+  height: 100%;
+}
+
+/* Safe area insets for notched devices */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Hide scrollbar for category filter */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Active scale for buttons */
+.active\:scale-95:active {
+  transform: scale(0.95);
+}
+
+.active\:scale-90:active {
+  transform: scale(0.9);
+}
+
+.active\:scale-\[0\.99\]:active {
+  transform: scale(0.99);
+}
+
+.active\:scale-\[0\.98\]:active {
+  transform: scale(0.98);
+}
+
+/* Smooth transitions */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Code block styling */
+pre {
+  background-color: hsl(var(--muted));
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Prism.js theme overrides */
+pre[class*="language-"] {
+  margin: 0;
+  padding: 1rem;
+  background: hsl(var(--muted));
+  border-radius: 0.5rem;
+}
+
+code[class*="language-"] {
+  text-shadow: none;
+  color: hsl(var(--foreground));
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: hsl(var(--muted-foreground));
+}
+
+.token.punctuation {
+  color: hsl(var(--foreground));
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: hsl(0 84% 60%);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: hsl(142 71% 45%);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: hsl(35 92% 33%);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: hsl(217 91% 60%);
+}
+
+.token.function,
+.token.class-name {
+  color: hsl(262 83% 58%);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: hsl(35 92% 33%);
+}
+
+/* Toast styling */
+[data-sonner-toast] {
+  font-family: inherit;
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on UI elements */
+button,
+[role="button"] {
+  user-select: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Modal backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
